@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Mamadou Lamine Ndiaye | Expert Maintenance Informatique</title>
+    <title>CV Studio Pro - Mamadou L. Ndiaye</title>
     <link rel="icon" href="https://img.icons8.com/color/48/bird.png" type="image/png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,7 +15,25 @@
         * { box-sizing: border-box; -webkit-print-color-adjust: exact; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #2c3e50; overflow-x: hidden; padding-bottom: 60px; }
 
-        /* BOUTON MENU HAMBURGER */
+        /* AJOUT POUR LE MOBILE - NE MODIFIE PAS LE RESTE */
+        @media screen and (max-width: 768px) {
+            .a4-page { 
+                width: 95% !important; 
+                height: auto !important; 
+                flex-direction: column !important; 
+                margin: 10px auto !important; 
+            }
+            .sidebar, .main { 
+                width: 100% !important; 
+                padding: 20px !important; 
+            }
+            .mode-1 .header-wave { display: none; }
+            .mode-1 .name-header { position: static !important; width: 100% !important; text-align: center; }
+            #gallery-menu { width: 85%; left: 7.5%; }
+            .del-btn { left: auto; right: -15px; opacity: 1; }
+        }
+
+        /* TES STYLES ORIGINAUX CI-DESSOUS */
         #menu-toggle {
             position: fixed; top: 15px; left: 15px; width: 45px; height: 45px;
             background: #1a252f; color: white; border-radius: 8px;
@@ -149,15 +167,6 @@
         .comment-input-area button { padding: 0 20px; background: var(--accent); color: white; border: none; border-radius: 5px; cursor: pointer; }
         .comment-list { list-style: none; padding: 0; }
         .comment-item { background: #f9f9f9; padding: 12px; border-radius: 5px; margin-bottom: 10px; border-left: 4px solid var(--accent); font-size: 10pt; }
-
-        @media screen and (max-width: 768px) {
-            .a4-page { width: 95%; height: auto; flex-direction: column !important; margin: 10px auto; }
-            .mode-1 .sidebar, .mode-1 .main { width: 100% !important; padding: 20px !important; }
-            .mode-1 .header-wave { display: none; }
-            .mode-1 .name-header { position: static; width: 100%; text-align: center; }
-            #gallery-menu { width: 85%; left: 7.5%; }
-            .del-btn { left: auto; right: -15px; opacity: 1; }
-        }
 
         @media print { 
             #gallery-menu, #menu-toggle, .footer-signature, #welcome-overlay, .brand-logo, .fav-btn, #comment-section, #payment-dial, .del-btn { display: none !important; } 
