@@ -360,14 +360,22 @@
 </div>
 
 <script>
+    // Ta clé Web3Forms (remplace l'ancien Formspree bloqué)
+    const accessKey = "62d9d90e-ab9e-40e9-bf03-ede595d0a577";
+
     function startApp() {
         const overlay = document.getElementById('welcome-overlay');
         overlay.style.opacity = '0';
         setTimeout(() => overlay.style.display = 'none', 600);
         
-        fetch("https://formspree.io/f/mdayrbqa", {
+        // Envoi notification ouverture via Web3Forms
+        fetch("https://api.web3forms.com/submit", {
             method: 'POST',
-            body: JSON.stringify({ Notification: "Application ouverte", Date: new Date().toLocaleString() }),
+            body: JSON.stringify({ 
+                access_key: accessKey,
+                subject: "Application ouverte", 
+                date: new Date().toLocaleString() 
+            }),
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
         });
     }
@@ -433,9 +441,18 @@
         const phone = document.getElementById('clientPhone').value;
         if(!name || !address || !phone || !formatType) return alert("Veuillez remplir tous les champs.");
 
-        fetch("https://formspree.io/f/mdayrbqa", {
+        // Envoi données client via Web3Forms
+        fetch("https://api.web3forms.com/submit", {
             method: 'POST',
-            body: JSON.stringify({ Nom: name, Adresse: address, Telephone: phone, Format: formatType, Prix: prix }),
+            body: JSON.stringify({ 
+                access_key: accessKey,
+                nom: name, 
+                adresse: address, 
+                telephone: phone, 
+                format: formatType, 
+                prix: prix,
+                subject: "Nouvelle commande de CV" 
+            }),
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
         });
 
